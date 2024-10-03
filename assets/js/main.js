@@ -1,4 +1,6 @@
-function main() {
+import { subscribeToHellfireClube } from "./firebase/hellfire-clube.js"
+
+(function main() {
     const txtName = document.getElementById('txtName')
     const txtEmail = document.getElementById('txtEmail')
     const txtLevel = document.getElementById('txtLevel')
@@ -11,5 +13,14 @@ function main() {
             level: txtLevel.value,
             character: txtCharacter.value
         }
+        
+        const id = await subscribeToHellfireClube(subscribe)
+        alert(`Inscrição ${id} adicionada com sucesso!`)
+        
+        txtName.value = ''
+        txtEmail.value = ''
+        txtLevel.value = ''
+        txtCharacter.value = ''
     })
-}
+
+}) ()
